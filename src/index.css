@@ -1,0 +1,82 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo';
+  src: url('/fonts/SpoqaHanSansNeo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo';
+  src: url('/fonts/SpoqaHanSansNeo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f8;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+
+  body {
+    /* 기본 css 설정 */
+    line-height: 1.5;
+    letter-spacing: -0.32px;
+    color: #171719;
+    font-family: 'SpoqaHanSansNeo', sans-serif;
+  }
+}
+
+@layer components {
+  .post-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 3px;
+  }
+}
+
+.input {
+  @apply w-full px-3 py-[14px] text-sm border border-line-light rounded-lg placeholder-lightGray focus:outline-none focus:border-primary-main;
+}
+
+.textarea {
+  @apply input resize-none;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50%);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.slideUp {
+  animation: slideUp 0.5s forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.4s forwards;
+}
